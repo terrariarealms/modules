@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mint.Core">
+      <HintPath>..\..\..\bin\Mint.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\..\..\deps\serilog\Serilog.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
