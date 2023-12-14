@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Reflection.Metadata;
+using Serilog;
 
 namespace Mint.PluginLoader;
 
@@ -11,29 +12,29 @@ public class PluginContainer
     }
 
     private Assembly _assembly;
-    private IPlugin? _instance;
+    private MintPlugin? _instance;
     private bool _isLoaded;
     private int _pluginIndex;
 
     public Assembly PluginAssembly => _assembly;
-    public IPlugin? Instance => _instance;
+    public MintPlugin? Instance => _instance;
     public string Name => _assembly.GetName().Name ?? "unknown";
     public bool IsLoaded => _isLoaded;
     public int PluginIndex => _pluginIndex;
 
 
-    internal IPlugin? CreateInstance()
+    internal MintPlugin? CreateInstance()
     {
         foreach (Type type in _assembly.GetTypes())
         {
-            if (!type.IsSubclassOf(typeof(IPlugin)))
+            if (type.BaseType?.FullName != typeof(MintPlugin).FullName)
                 continue;
 
             object? instance = Activator.CreateInstance(type);
             if (instance == null)
                 continue;
 
-            return instance as IPlugin; 
+            return instance as MintPlugin; 
         }
 
         return null;

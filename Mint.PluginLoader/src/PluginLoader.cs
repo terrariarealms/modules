@@ -9,11 +9,11 @@ internal class PluginLoader
 {
     internal PluginLoader()
     {
-        _asmLoadContext = new AssemblyLoadContext("plugin_ldr");
+        //_asmLoadContext = new AssemblyLoadContext("plugin_ldr", true);
         _loadedPlugins = Array.Empty<PluginContainer?>();
     }
 
-    internal AssemblyLoadContext _asmLoadContext;
+    //internal AssemblyLoadContext _asmLoadContext;
     internal PluginContainer?[] _loadedPlugins;
 
     internal void LoadPlugins()
@@ -33,12 +33,14 @@ internal class PluginLoader
         GC.WaitForPendingFinalizers();
         GC.Collect();
 
-        _asmLoadContext.Unload();
+        //_asmLoadContext.Unload();
     }
 
     private void LoadFrom(PluginContainer container)
     {
+        Log.Information("PluginLoader: Loading {Name}", container.Name);
         container.LoadPlugin();
+        Log.Information("PluginLoader: Loaded {Name}", container.Name);
         _loadedPlugins[container.PluginIndex] = container;
     }
 
@@ -46,14 +48,18 @@ internal class PluginLoader
     {
         if (container == null) return;
 
+        Log.Information("PluginLoader: Unloading {Name}", container.Name);
         container.UnloadPlugin();
+        Log.Information("PluginLoader: Unloaded {Name}", container.Name);
         _loadedPlugins[container.PluginIndex] = null;
     }
 
     private IEnumerable<PluginContainer> LoadContainers()
     {
+        /*
         if (_asmLoadContext.Assemblies.Any())
             _asmLoadContext.Unload();
+        */
 
         int pluginId = 0;
         foreach (string file in Directory.EnumerateFiles(LoaderModule.WorkingDirectory, "*.dll"))
@@ -62,7 +68,9 @@ internal class PluginLoader
 
             try
             {
-                container = new PluginContainer(_asmLoadContext.LoadFromAssemblyPath(file), pluginId);
+                //container = new PluginContainer(_asmLoadContext.LoadFromAssemblyPath(Path.Combine(Environment.CurrentDirectory, file)), pluginId);
+                
+                container = new PluginContainer(Assembly.Load(File.ReadAllBytes(file)), pluginId);
                 pluginId++;
             }
             catch (BadImageFormatException ex)
