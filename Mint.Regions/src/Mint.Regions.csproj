@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FNA">
+      <HintPath>..\..\..\deps\terraria.mintoza\FNA.dll</HintPath>
+    </Reference>
+    <Reference Include="Mintoza">
+      <HintPath>..\..\..\deps\terraria.mintoza\Mintoza.dll</HintPath>
+    </Reference>
+  
+    <ProjectReference Include="..\..\..\src\Mint.Core.csproj" />
+  </ItemGroup>
+</Project>
