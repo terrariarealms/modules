@@ -1,0 +1,18 @@
+{
+    "Plugins": "Плагины",
+    "Plugins operation failed: initialization was failed.": "Ошибка операции с плагинами: инициализация не удалась.",
+    "There is no one plugin installed.": "Ни один плагин не установлен.",
+
+    "Loaded plugins (total: {2}):": "Загруженные плагины (всего: {2}):",
+    "Next page: /plugins list {1}.": "Следующая страница: /plugins list {1}.",
+
+    "view all loaded and unloaded plugins": "просмотреть всех загруженных и незагруженных плагинов",
+    "unload all plugins": "выгрузить все плагины",
+    "load all plugins": "загрузить все плагины",
+    "reload all plugins": "перезагрузить все плагины",
+
+    "Successfully unloaded plugins.": "Плагины успешно выгружены.",
+    "Successfully loaded plugins.": "Плагины успешно загружены.",
+    "Successfully reloaded plugins.": "Плагины успешно перезагружены."
+    
+}
