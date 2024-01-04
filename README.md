@@ -10,3 +10,10 @@ In order to install these modules, you must:
 
 After these commands, you can disable/configure/change these modules.
 All modules are located in the `modules` folder.
+
+## Permissions
+Mint.Vulnpatch:
+
+mint.game.fishing.fishoutnpc
+mint.game.fishing.spawnboss
+mint.game.spawnboss

@@ -3,13 +3,16 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Serilog">
-      <HintPath>..\..\..\deps\serilog\Serilog.dll</HintPath>
+    <Reference Include="FNA">
+      <HintPath>..\..\..\deps\terraria.mintoza\FNA.dll</HintPath>
     </Reference>
-    
-    <PackageReference Include="MongoDB.Driver" Version="2.23.1"/>
+    <Reference Include="Mintoza">
+      <HintPath>..\..\..\deps\terraria.mintoza\Mintoza.dll</HintPath>
+    </Reference>
+  
     <ProjectReference Include="..\..\..\src\Mint.Core.csproj" />
   </ItemGroup>
 </Project>

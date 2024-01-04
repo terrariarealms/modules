@@ -22,7 +22,8 @@ internal static partial class TileHandlers
         MintServer.Network.IncomingPackets.Add(133, BasicCheck); // food platter
         MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldTileEntityPlace, BasicCheck);   
         MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldTileEntityPlaceItemFrame, BasicCheck);   
-        MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldTileEntityPlaceItemRack, BasicCheck);   
+        MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldTileEntityPlaceItemRack, BasicCheck);  
+        MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldTileToggleGemLock, BasicCheck);    
 
         MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldPaintTile, BasicCheck);   
         MintServer.Network.IncomingPackets.Add((byte)IncomingPacketID.WorldPaintWall, BasicCheck);   

@@ -8,3 +8,10 @@
 
 После этих команд, вы можете отключить/настроить/изменить модули через их конфигурации.
 Все модули находятся в папке `modules`.
+
+## Права
+Mint.Vulnpatch:
+
+mint.game.fishing.fishoutnpc
+mint.game.fishing.spawnboss
+mint.game.spawnboss

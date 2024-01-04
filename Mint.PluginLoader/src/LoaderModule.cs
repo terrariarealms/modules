@@ -1,5 +1,6 @@
 ﻿using Mint.Assemblies.Modules;
 using Mint.Core;
+using Mint.Localization;
 using Mint.Server.Commands;
 using Serilog;
 
@@ -22,6 +23,10 @@ public class LoaderModule : MintModule
     public override void Setup()
     {
         Log.Information("LoaderModule -> Setup()");
+
+        LocalizationContainer russianLang = new LocalizationContainer();
+        russianLang.ImportFrom(File.ReadAllText("modules/mint_pluginloader_ru.json"), false, true);
+        MintServer.Localization.AddContainer(LanguageID.Russian, russianLang);
 
         if (!Directory.Exists(WorkingDirectory))
             Directory.CreateDirectory(WorkingDirectory);

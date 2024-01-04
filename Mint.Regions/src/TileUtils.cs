@@ -19,6 +19,7 @@ public static class TileUtils
         if (player.CanBuildIn(point.X, point.Y))
             return true;
 
+        player.SendTileRectangle(point.X, point.Y, 2, 2);
         Notify(player);
         return false;
     }
@@ -34,6 +35,7 @@ public static class TileUtils
         if (player.CanBuildIn(rectangle))
             return true;
 
+        player.SendTileRectangle(rectangle.X, rectangle.Y, (byte)rectangle.Width, (byte)rectangle.Height);
         Notify(player);
         return false;
     }
